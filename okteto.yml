@@ -1,4 +1,4 @@
-icon: https://github.com/okteto/traefik-sample/raw/main/icon.png
+icon: https://raw.githubusercontent.com/okteto/traefik-sample/main/icon.png
 deploy:
   - name: Add Traefik Helm Repo
     command: helm repo add traefik https://helm.traefik.io/traefik 2> /dev/null || echo Repository traefik already exists
