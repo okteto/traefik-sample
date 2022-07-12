@@ -1,0 +1,9 @@
+icon: https://github.com/okteto/traefik-sample/raw/main/icon.png
+deploy:
+  - name: Add Traefik Helm Repo
+    command: helm repo add traefik https://helm.traefik.io/traefik 2> /dev/null || echo Repository traefik already exists
+  - name: Helm Repo Update
+    command: helm repo update
+  - name: Install Traefik
+    command: helm upgrade --install traefik traefik/traefik -f values.yml --skip-crds --no-hooks --set "providers.kubernetesIngress.namespaces={${OKTETO_NAMESPACE}}" --set "globalArguments={--providers.kubernetesingress.namespaces=${OKTETO_NAMESPACE},--api.insecure=true}"
+

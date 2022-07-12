@@ -1,0 +1,15 @@
+providers:
+  kubernetesCRD:
+    enabled: false
+
+  kubernetesIngress:
+    enabled: true
+    ingressClass: traefik-internal
+
+rbac:
+  enabled: false
+  namespaced: true
+
+serviceAccount:
+  # this should be left blank ("") when rbac.enabled is true
+  name: "default"
