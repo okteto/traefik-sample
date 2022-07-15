@@ -3,7 +3,7 @@ deploy:
   - name: Add Traefik Helm Repo
     command: helm repo add traefik https://helm.traefik.io/traefik 2> /dev/null || echo Repository traefik already exists
   - name: Helm Repo Update
-    command: helm repo update
+    command: helm repo update traefik --fail-on-repo-update-fail
   - name: Install Traefik
-    command: helm upgrade --install traefik traefik/traefik -f values.yml --skip-crds --no-hooks --set "providers.kubernetesIngress.namespaces={${OKTETO_NAMESPACE}}" --set "globalArguments={--providers.kubernetesingress.namespaces=${OKTETO_NAMESPACE},--api.insecure=true}"
+    command: helm upgrade --install traefik traefik/traefik -f values.yml --skip-crds --no-hooks --set "globalArguments={--providers.kubernetesingress.namespaces=${OKTETO_NAMESPACE}}"
 

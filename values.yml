@@ -4,12 +4,10 @@ providers:
 
   kubernetesIngress:
     enabled: true
-    ingressClass: traefik-internal
+    ingressClass: okteto-internal
 
 rbac:
   enabled: false
-  namespaced: true
 
 serviceAccount:
-  # this should be left blank ("") when rbac.enabled is true
   name: "default"
