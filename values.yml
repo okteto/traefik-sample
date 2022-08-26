@@ -4,10 +4,14 @@ providers:
 
   kubernetesIngress:
     enabled: true
-    ingressClass: okteto-internal
+    ingressClass: okteto-traefik
 
 rbac:
   enabled: false
 
 serviceAccount:
   name: "default"
+
+logs:
+  access:
+    enabled: true
