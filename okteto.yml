@@ -5,5 +5,5 @@ deploy:
   - name: Helm Repo Update
     command: helm repo update traefik --fail-on-repo-update-fail
   - name: Install Traefik
-    command: helm upgrade --install traefik traefik/traefik -f values.yml --skip-crds --no-hooks --set "globalArguments={--providers.kubernetesingress.namespaces=${OKTETO_NAMESPACE}}"
+    command: helm upgrade --install traefik traefik/traefik -f values.yml --skip-crds --no-hooks --set "globalArguments={--providers.kubernetesingress.namespaces=${OKTETO_NAMESPACE},--api.insecure=true}"
 
