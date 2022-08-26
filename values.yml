@@ -11,6 +11,11 @@ rbac:
 
 serviceAccount:
   name: "default"
+  
+service:
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+    dev.okteto.com/generate-host: "movies"
 
 logs:
   access:
